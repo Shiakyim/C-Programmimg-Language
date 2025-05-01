@@ -1,4 +1,4 @@
-# Programming Fundamental
+# Programming Fundamental  
 **Submitted By:** Muhammad Qasim  
 **Reference ID:** F2024332122  
 
@@ -8,13 +8,13 @@
 
 ---
 
-### Here Are Some Queries and Their Answers with Explanation
+### Here Are Some Queries and Their Answers with Explanation  
 
 ---
 
-### Q1: How Can We Return Multiple Values by a Function in C?  
+### Q1: How Can We Return Multiple Values by a Function in C++?  
 **Answer:**  
-In C, we cannot return multiple values directly using the `return` statement. However, we can use **structures**, **arrays**, or **pointers**.
+In C++, we cannot return multiple values directly using the `return` statement, but we can use **structures**, **arrays**, or **pointers**.
 
 #### Example Using `struct`:  
 ```cpp
@@ -35,7 +35,7 @@ Result calculate(int a, int b) {
 
 int main () {
     Result result = calculate(5, 3);
-    printf("Sum: %d, Product: %d\n", result.sum, result.product);
+    cout << "Sum: " << result.sum << ", Product: " << result.product << endl;
     return 0;
 }
 ```
@@ -47,9 +47,9 @@ int main () {
 
 ---
 
-### Q2: Returning Array from a Function in C  
+### Q2: Returning Array from a Function in C++  
 **Answer:**  
-C cannot return entire arrays directly, but a **pointer** to the array can be returned.
+C++ cannot return arrays directly, but we can return a **pointer** to a static array.
 
 #### Example:  
 ```cpp
@@ -62,15 +62,15 @@ int* createArray() {
 }
 
 int main() {
-    int *arr = createArray();
-    printf("Array Elements: %d, %d, %d\n", arr[0], arr[1], arr[2]);
+    int* arr = createArray();
+    cout << "Array Elements: " << arr[0] << ", " << arr[1] << ", " << arr[2] << endl;
     return 0;
 }
 ```
 
 **Explanation:**  
 - Static arrays retain memory.  
-- The pointer to the first element is returned.  
+- Pointer to the first element is returned.  
 - Access the array using the pointer.
 
 ---
@@ -85,7 +85,7 @@ Yes, one function can call another (or itself – recursion).
 using namespace std;
 
 void greet() {
-    printf("Hello!\n");
+    cout << "Hello!" << endl;
 }
 
 void callFunction() {
@@ -104,7 +104,7 @@ int main() {
 
 ---
 
-### Q4: Meaning of `Num[10]` in C  
+### Q4: Meaning of `Num[10]` in C++  
 **Answer:**  
 `Num[10]` means an array of **10 integers**.
 
@@ -117,8 +117,9 @@ int main() {
     int Num[10];
     for (int i = 0; i < 10; i++) {
         Num[i] = i + 1;
-        printf("%d ", Num[i]);
+        cout << Num[i] << " ";
     }
+    cout << endl;
     return 0;
 }
 ```
@@ -148,7 +149,7 @@ int sum(int arr[], int size) {
 
 int main() {
     int Num[5] = {1, 2, 3, 4, 5};
-    printf("Sum: %d\n", sum(Num, 5));
+    cout << "Sum: " << sum(Num, 5) << endl;
     return 0;
 }
 ```
@@ -174,7 +175,7 @@ int sum(int n) {
 }
 
 int main() {
-    printf("Sum of first 5 numbers: %d\n", sum(5));
+    cout << "Sum of first 5 numbers: " << sum(5) << endl;
     return 0;
 }
 ```
@@ -192,6 +193,7 @@ Structures can contain arrays.
 #### Example:  
 ```cpp
 #include <iostream>
+using namespace std;
 
 struct Example {
     int sum[3];
@@ -199,7 +201,7 @@ struct Example {
 
 int main() {
     Example obj = {{2, 5, 7}};
-    printf("First element: %d\n", obj.sum[0]);
+    cout << "First element: " << obj.sum[0] << endl;
     return 0;
 }
 ```
@@ -220,8 +222,8 @@ Functions can be inside or outside a class.
 using namespace std;
 
 class Sample {
-    public:
-        void show(); // Declared
+public:
+    void show(); // Declared
 };
 
 void Sample::show() {
@@ -251,11 +253,11 @@ Use **getter/setter** methods for private data.
 using namespace std;
 
 class Example {
-    private:
-        int data;
-    public:
-        void setData(int x) { data = x; }
-        int getData() { return data; }
+private:
+    int data;
+public:
+    void setData(int x) { data = x; }
+    int getData() { return data; }
 };
 
 int main () {
@@ -282,13 +284,13 @@ Use `this->` to distinguish when names conflict.
 using namespace std;
 
 class Example {
-    public:
-        int a;
-        void show () {
-            int a = 10;
-            cout << "Local Variable: " << a << endl;
-            cout << "Data Member: " << this->a << endl;
-        }
+public:
+    int a;
+    void show () {
+        int a = 10;
+        cout << "Local Variable: " << a << endl;
+        cout << "Data Member: " << this->a << endl;
+    }
 };
 
 int main () {
